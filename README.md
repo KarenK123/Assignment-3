@@ -1,5 +1,6 @@
-**bold**# Assignment-3**bold**
-**bold**## Music Sequencer Project**bold**
+_# Assignment-3_
+
+_## Music Sequencer Project_
 
 For this project, I plan on making an android music sequencer app. 
 
@@ -9,6 +10,7 @@ My intention is that the app will have
 * sample songs to listen to and get ideas from, 
 * a few audio channels that can play simultaneously(maybe 6 max) and 
 * the ability to change the cumulative pitch of the channels.
+
 :musical_note:
 :musical_score:
 :musical_note:
