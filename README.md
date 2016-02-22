@@ -1,6 +1,6 @@
-_# Assignment-3_
+# __Assignment-3__
 
-_## Music Sequencer Project_
+## __Music Sequencer Project__
 
 For this project, I plan on making an android music sequencer app. 
 
