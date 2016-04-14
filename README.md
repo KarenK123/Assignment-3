@@ -2,7 +2,7 @@
 
 ## __Music Sequencer Project__
 
-For this project, I plan on making an android music sequencer app. 
+For thiis project, I plan on making an android music sequencer app. 
 
 The app will mainly be coded in Java using the Android software development kit (SDK).
 My intention is that the app will have 
