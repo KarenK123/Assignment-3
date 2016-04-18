@@ -1,4 +1,4 @@
-package processing.test.processingheeeelp;
+package processing.test.gameassignmentt;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
@@ -22,7 +22,7 @@ window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutP
         frame.setId(viewId);
         setContentView(frame, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         if (savedInstanceState == null) {
-            fragment = new processingHeeeelp();
+            fragment = new gameAssignmentt();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(frame.getId(), fragment, MAIN_FRAGMENT_TAG).commit();
         } else {
