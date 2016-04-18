@@ -11,6 +11,7 @@ class sprite{
   
   void display(){
     fill(255);
+    stroke(255);
     //left leg and right leg
     line(startPosX, startPosY, startPosX+width/43.33, startPosY-(height/12));
     line(startPosX+(width/43.33), startPosY-(height/12), startPosX+(width/26), startPosY);
