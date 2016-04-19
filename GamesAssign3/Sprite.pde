@@ -46,17 +46,17 @@ class sprite{
     ellipse(startPosX, startPosY-wHead, wHead, wHead);
     //eyes
     fill(255);
-    ellipse(startPosX-10, (startPosY-wHead)-5, wEyes, hEyes);
-    ellipse(startPosX+10, (startPosY-wHead)-5, wEyes, hEyes);
+    ellipse(startPosX-(width/90), (startPosY-wHead)-(height/70), wEyes, hEyes);
+    ellipse(startPosX+(width/90), (startPosY-wHead)-(height/70), wEyes, hEyes);
     fill(0);
-    ellipse(startPosX-10, (startPosY-wHead)-5, (wEyes/2), (hEyes/2));
-    ellipse(startPosX+10, (startPosY-wHead)-5, (wEyes/2), (hEyes/2));
+    ellipse(startPosX-(width/90), (startPosY-wHead)-(height/70), (wEyes/2), (hEyes/2));
+    ellipse(startPosX+(width/90), (startPosY-wHead)-(height/70), (wEyes/2), (hEyes/2));
     //smile
-    ellipse(startPosX, (startPosY-wHead)+5, 10, 10);
+    ellipse(startPosX, (startPosY-wHead)+(height/90), (width/65), (width/65));
     stroke(0);
     noFill();
-    arc(startPosX-6, (startPosY-wHead)+5, 10, 10, 0, PI, OPEN);
-    arc(startPosX+6, (startPosY-wHead)+5, 10, 10, 0, PI, OPEN);
+    arc(startPosX-(width/108), (startPosY-wHead)+(height/50), (width/100), (width/70), 0, PI, OPEN);
+    arc(startPosX+(width/108), (startPosY-wHead)+(height/50), (width/100), (width/70), 0, PI, OPEN);
     //belly
     noStroke();
     fill(225);

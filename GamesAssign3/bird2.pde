@@ -43,9 +43,9 @@ class bird2 extends bird{
   //hair
   //cant put in for loop because of ellipse slope
   fill(100, 0, 100);
-   triangle(xcent, radiust, xcent, radiust-(hbird / 4), xcent+(hbird / 4), radiust+(hbird / 24) );
+  triangle(xcent, radiust, xcent, radiust-(hbird / 4), xcent+(hbird / 4), radiust+(hbird / 24) );
   triangle(xcent-(hbird / 4), radiust+(hbird/18), xcent-(hbird / 4), radiust-(hbird / 4), xcent, radiust );
-  triangle(xcent-(hbird / 2), radiust+(hbird / 7), xcent-(hbird / 2), radiust-(hbird / 4), xcent-(hbird / 4), radiust+(hbird/18));
+  triangle(xcent-(hbird / 2), radiust+(hbird / 5), xcent-(hbird / 2), radiust-(hbird / 4), xcent-(hbird / 4), radiust+(hbird/18));
   
    
   //wing
@@ -61,4 +61,5 @@ class bird2 extends bird{
   }
   
   
+  }
 }
