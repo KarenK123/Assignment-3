@@ -15,9 +15,9 @@ class tree{
     noFill();
     
     //tree trunks
-    noStroke();
+    //noStroke();
     fill(#50463D);
-    float trunkVer1 = (width/21.666);
+    /*float trunkVer1 = (width/21.666);
     float trunkVer2 = (width/10.8333);
     float trunkVer3 = (width/5.909);
     float trunkVer4 = (width/8.125);
@@ -25,8 +25,18 @@ class tree{
     for(float i = 10; i<3500; i+= 160){
     bezier(trunkVer1+i,upperZoneBark,  trunkVer2+i,((stageZone+upperZoneBark)/2),  trunkVer2+i,((stageZone+upperZoneBark)/2),   trunkVer1+i,stageZone);
     bezier(trunkVer3+i,stageZone,   trunkVer4+i,((stageZone+upperZoneBark)/2),    trunkVer4+i,((stageZone+upperZoneBark)/2),     trunkVer3+i,upperZoneBark);
+    }*/
+    float trunkVer1 = (width/21.666);
+    float trunkVer2 = (width/10.8333);
+    float trunkVer3 = (width/5.909);
+    //float trunkVer4 = (width/8.125);
+    for(float i=0; i<3500; i+=160){
+    strokeWeight(10);
+    stroke(#50463D);
+    line(trunkVer1+i+(width/13),stageZone, trunkVer1+i+(width/13),upperZoneBark);
     }
     
+
     
     
     //treeBush
@@ -40,6 +50,7 @@ class tree{
     ellipse(trunkVer1+j+(width/16.25), upperZoneBark+(height/30), trunkVer2, trunkVer2);
     ellipse(trunkVer1+j+(width/16.25), upperZoneBark-(height/5), trunkVer2, trunkVer2);
     ellipse(trunkVer1+j+(width/16.25), upperZoneBark-(height/10), trunkVer2, trunkVer2);
+    
     }
   }
 }
