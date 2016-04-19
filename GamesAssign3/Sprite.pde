@@ -62,7 +62,4 @@ class sprite{
     fill(225);
     ellipse(startPosX, startPosY, (wBody/1.4), (wBody/1.3));
   }
-
-
-
 }

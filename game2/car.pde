@@ -12,8 +12,8 @@ void display(){
   rectMode(CORNER);
   
   //car width and height
-  float cWidth = (width/4);//175
-  float cHeight = (cWidth/4.9122807017544);
+  float cWidth = (width/6);//175
+  float cHeight = (cWidth/7.36842105263);
   
   fill(255, 0, 0);
   stroke(255,  0, 0);

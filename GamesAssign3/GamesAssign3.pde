@@ -57,6 +57,11 @@ void draw(){
   mybird33.move();
   mybird34.display();
   mybird34.move();
+  
+  if(startPosX > width){
+  noLoop();
+}
+
 }
 
 
