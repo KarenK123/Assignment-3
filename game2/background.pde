@@ -1,6 +1,7 @@
 void background(){
   rectMode(CENTER);
   fill(255);
+  noStroke();
   //noLoop();
   /*float x=0;
   for(float i=0; i<=height; i+=20){

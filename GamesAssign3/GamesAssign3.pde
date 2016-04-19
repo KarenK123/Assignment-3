@@ -1,7 +1,7 @@
 sprite mysprite;
 tree mytree;
 bird mybird;
-bird mybird1;o
+bird mybird1;
 bird2 mybird2;
 bird2 mybird21;
 bird3 mybird3;
