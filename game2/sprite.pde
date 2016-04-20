@@ -1,11 +1,13 @@
 class sprite{
   float startPosX;
   float startPosY;
+  float wHead;
   
   //consrtuctor
-  sprite(float _startPosX, float _startPosY){
+  sprite(float _startPosX, float _startPosY, float _wHead){
     startPosX = _startPosX;
     startPosY = _startPosY;
+    wHead = _wHead;
   }
   
   
@@ -14,7 +16,7 @@ class sprite{
     //fill(255);
     stroke(255);
     float wBody = width/10;
-    float wHead = width/15;
+    //float wHead = width/15;
     float wEar = width/30;
     float wFeet = width/15;
     float hFeet = width/30;

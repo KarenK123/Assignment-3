@@ -1,10 +1,18 @@
 class car{
   float xPos;
   float yPos;
+  float cWidth;
+  //float wheel1X;
+  //float wheel2X;
+  //float wheelY;
 
-car(float _xPos, float _yPos){
+car(float _xPos, float _yPos, float _cWidth){
   xPos = _xPos;
   yPos = _yPos;
+  cWidth = _cWidth;
+  //wheel1X = _wheel1X;
+  //wheel2X = _wheel2X;
+  //wheelY = _wheelY;
 }
 
 
@@ -12,8 +20,11 @@ void display(){
   rectMode(CORNER);
   
   //car width and height
-  float cWidth = (width/6);//175
+  //float cWidth = (width/6);//175
   float cHeight = (cWidth/7.36842105263);
+  float wheel1X = xPos+(cWidth/5);   
+  float wheel2X = xPos+(cWidth/1.2);
+  float wheelY = yPos+(cHeight);
   
   fill(255, 0, 0);
   stroke(255,  0, 0);
@@ -24,14 +35,14 @@ void display(){
   fill(0);
   stroke(255);
   //wheels
-  ellipse(xPos+(cWidth/5), yPos+(cHeight), (cWidth/3.5), (cWidth/3.5));
-  ellipse(xPos+(cWidth/1.2), yPos+(cHeight), (cWidth/3.5), (cWidth/3.5));
+  ellipse(wheel1X, wheelY, (cWidth/3.5), (cWidth/3.5));
+  ellipse(wheel2X, wheelY, (cWidth/3.5), (cWidth/3.5));
   fill(255);
-  ellipse(xPos+(cWidth/5), yPos+(cHeight), (cWidth/7), (cWidth/7));
-  ellipse(xPos+(cWidth/1.2), yPos+(cHeight), (cWidth/7), (cWidth/7));
+  ellipse(wheel1X, wheelY, (cWidth/7), (cWidth/7));
+  ellipse(wheel2X, wheelY, (cWidth/7), (cWidth/7));
   fill(0);
-  ellipse(xPos+(cWidth/5), yPos+(cHeight), (cWidth/8.75), (cWidth/8.75));
-  ellipse(xPos+(cWidth/1.2), yPos+(cHeight), (cWidth/8.75), (cWidth/8.75));;
+  ellipse(wheel1X, wheelY, (cWidth/8.75), (cWidth/8.75));
+  ellipse(wheel2X, wheelY, (cWidth/8.75), (cWidth/8.75));;
   fill(255, 0, 0);
   stroke(255, 0, 0);
   //hood
