@@ -1,10 +1,10 @@
-class sprite{
+class sprite2{
   float startPosX;
   float startPosY;
   float wHead;
   
   //consrtuctor
-  sprite(float _startPosX, float _startPosY, float _wHead){
+  sprite2(float _startPosX, float _startPosY, float _wHead){
     startPosX = _startPosX;
     startPosY = _startPosY;
     wHead = _wHead;

@@ -1,4 +1,5 @@
-void background(){
+void background2(){
+  background(0);
   rectMode(CENTER);
   fill(255);
   noStroke();
