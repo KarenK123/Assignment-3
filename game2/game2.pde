@@ -9,9 +9,9 @@ void setup(){
   orientation(LANDSCAPE);
   smooth();
   mysprite= new sprite((width/2), height/1.2, (width/15));
-  mycar = new car(width/1.2, (height/1.2), (width/6));
-  mycar2 = new car(width/5, (height/5), (width/6));
-  mycar3 = new car(width/2, (height/2), (width/6));
+  mycar = new car(width/1.2, (height/3), (width/6));
+  mycar2 = new car(width/5, (height/10), (width/6));
+  mycar3 = new car(width/2, (height/5), (width/6));
   float stageZone = (height*.75);
   float upperZone = (height*.25);
   
@@ -36,7 +36,7 @@ void draw(){
   noLoop();
   }
   
-  if(dist( mysprite.startPosX, mysprite.startPosY, mycar.cWidth/2, mycar.cWidth/2) < mysprite.wHead + mycar.cWidth ){
+  if(dist( mysprite.startPosX, mysprite.startPosY, mycar.xPos, mycar.yPos) < mysprite.wHead + mycar.cWidth/2 ){
     lose();
   }
   
