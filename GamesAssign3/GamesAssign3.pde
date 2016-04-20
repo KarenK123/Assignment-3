@@ -5,6 +5,8 @@ import ddf.minim.effects.*;
 PFont font;
 Minim minim;
 AudioPlayer sou;
+Minim minim1;
+AudioPlayer sound;
 
 sprite mysprite;
 //cloud mycloud;
@@ -18,14 +20,16 @@ bird3 mybird3;
 bird3 mybird32;
 bird3 mybird33;
 bird3 mybird34;
-
-
+sprite2 mysprite2;
+car mycar;
+car2 mycar2;
+car3 mycar3;
 
 
 void setup(){
-  // Load a soundfile from the /data folder of the sketch and play it back
+   // Load a soundfile from the /data folder of the sketch and play it back
   minim = new Minim(this);
-  sou = minim.loadFile("Forest.mp3");
+  sou = minim.loadFile("sample.mp3");
   sou.loop();
   
   //loading font
@@ -54,13 +58,17 @@ void setup(){
   mybird32 = new bird3(random(0, width), 0, (width/150), (width/20), 200);
   mybird33 = new bird3(random(0, width), 0, (width/170), (width/20), 200);
   mybird34 = new bird3(random(0, width), 0, (width/210), (width/20), 200);
-  
+  mysprite2= new sprite2((width/2), height/1.2, (width/22.5));
+  mycar = new car(width/1.2, (height/3), (width/6));//red
+  mycar3 = new car3(width/2, (height/5), (width/8), 100);//yellow
+  mycar2 = new car2(width/5, (height/10), (width/10), (200));//green
   
 
 }
 
 int speed = 20;
-
+int mode = 0;
+int speedS = 20;
 
 
 
@@ -76,5 +84,18 @@ void keyPressed(){ // This function is called everytime a key is pressed.
     {
       mysprite.startPosX+=speed;
     }
+    if (keyCode == UP)
+    {
+      mysprite2.startPosY-=speedS;
+    }
+    else if (keyCode == DOWN)
+    {
+      mysprite2.startPosY+=speedS;
+    }
   } 
+  
+  if (key >= '0' && key <='9')
+  {
+    mode = key - '0';
+  }
 } // End of keyPressed()
