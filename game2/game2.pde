@@ -9,7 +9,7 @@ AudioPlayer sou;
 sprite mysprite;
 car mycar;
 car2 mycar2;
-car mycar3;
+car3 mycar3;
 
 void setup(){
   // Load a soundfile from the /data folder of the sketch and play it back
@@ -27,9 +27,10 @@ void setup(){
   orientation(LANDSCAPE);
   smooth();
   mysprite= new sprite((width/2), height/1.2, (width/22.5));
-  mycar = new car(width/1.2, (height/3), (width/6));
-  mycar2 = new car2(width/5, (height/10), (width/6), 200);
-  mycar3 = new car(width/2, (height/5), (width/6));
+  mycar = new car(width/1.2, (height/3), (width/6));//red
+  mycar3 = new car3(width/2, (height/5), (width/8), 100);//yellow
+  mycar2 = new car2(width/5, (height/10), (width/10), (200));//green
+  
   float stageZone = (height*.75);
   float upperZone = (height*.25);
   
