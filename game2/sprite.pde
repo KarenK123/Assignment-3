@@ -15,13 +15,16 @@ class sprite{
     strokeWeight(1);
     //fill(255);
     stroke(255);
-    float wBody = width/10;
-    //float wHead = width/15;
-    float wEar = width/30;
-    float wFeet = width/15;
-    float hFeet = width/30;
-    float wEyes = width/50;
-    float hEyes = width/40;
+    
+    float wBody = width/15;
+    //float wHead = width/22.5;
+    float wEar = width/45;
+    float wFeet = width/22.5;
+    float hFeet = width/45;
+    float wEyes = width/75;
+    float hEyes = width/60;
+    
+    
     noStroke();
     fill(#9B9794);
     //feet
