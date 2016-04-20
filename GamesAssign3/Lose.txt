@@ -1,2 +1,1 @@
-You Lose..Sorry. 
-To retry, press 0.
+You Lose..Sorry. To retry, press 0.
