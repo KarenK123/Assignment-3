@@ -1,7 +1,6 @@
 void background(){
   
   float stageZone = (height*.75);
-  float upperZone = (height*.25);
   
   
   

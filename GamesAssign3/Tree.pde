@@ -9,7 +9,7 @@ class tree{
   
   void display(){
      float stageZone = (height*.75);
-     float upperZone = (height*.25);
+ 
      float upperZoneBark = ((height*.25)+height/20);
   
     noFill();

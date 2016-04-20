@@ -5,6 +5,11 @@ import processing.data.*;
 import processing.event.*; 
 import processing.opengl.*; 
 
+import ddf.minim.*; 
+import ddf.minim.signals.*; 
+import ddf.minim.analysis.*; 
+import ddf.minim.effects.*; 
+
 import java.util.HashMap; 
 import java.util.ArrayList; 
 import java.io.File; 
@@ -16,7 +21,15 @@ import java.io.IOException;
 
 public class GamesAssign3 extends PApplet {
 
+
+
+
+
 PFont font;
+Minim minim;
+AudioPlayer sou;
+Minim minim1;
+AudioPlayer sound;
 
 sprite mysprite;
 //cloud mycloud;
@@ -37,6 +50,10 @@ car3 mycar3;
 
 
 public void setup(){
+   // Load a soundfile from the /data folder of the sketch and play it back
+  minim = new Minim(this);
+  sou = minim.loadFile("sample.mp3");
+  sou.loop();
   
   //loading font
   font = loadFont("snap40.vlw");

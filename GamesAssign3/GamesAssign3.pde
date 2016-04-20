@@ -1,12 +1,4 @@
-import ddf.minim.*;
-import ddf.minim.signals.*;
-import ddf.minim.analysis.*;
-import ddf.minim.effects.*;
 PFont font;
-Minim minim;
-AudioPlayer sou;
-Minim minim1;
-AudioPlayer sound;
 
 sprite mysprite;
 //cloud mycloud;
@@ -27,10 +19,6 @@ car3 mycar3;
 
 
 void setup(){
-   // Load a soundfile from the /data folder of the sketch and play it back
-  minim = new Minim(this);
-  sou = minim.loadFile("sample.mp3");
-  sou.loop();
   
   //loading font
   font = loadFont("snap40.vlw");
@@ -43,7 +31,6 @@ void setup(){
   smooth();
   
   float stageZone = (height*.75);
-  float upperZone = (height*.25);
   
   mysprite= new sprite((width/10), height-(height/7), width/15);
   //mycloud = new cloud(0, (width/12.5), 0.1);
@@ -68,7 +55,8 @@ void setup(){
 
 int speed = 20;
 int mode = 0;
-int speedS = 20;
+int speeded = 2;
+int speededS = 20;
 
 
 
@@ -86,11 +74,11 @@ void keyPressed(){ // This function is called everytime a key is pressed.
     }
     if (keyCode == UP)
     {
-      mysprite2.startPosY-=speedS;
+      mysprite2.startPosY-=speededS;
     }
     else if (keyCode == DOWN)
     {
-      mysprite2.startPosY+=speedS;
+      mysprite2.startPosY+=speededS;
     }
   } 
   

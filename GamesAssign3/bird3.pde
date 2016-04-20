@@ -16,11 +16,9 @@ class bird3 extends bird{
   //float wbird = (width/15);
   float hbird = (wbird/.9);
   //center to right side of bird
-  float radius1 = (xcent+(wbird/2));
-  //center to left side of bird
-  float radius2 = (xcent-(wbird/2));
-  //center to top of birds head
-  float radiust = (ycent-(hbird/2));
+
+  
+
   
   //body
   fill(100, 15, 150);
@@ -59,7 +57,7 @@ class bird3 extends bird{
   }
   
   void move(){
-    float stageZone = (height*75);
+   
   ycent = ycent + speed;
   if (ycent > height){
     ycent = 0;
