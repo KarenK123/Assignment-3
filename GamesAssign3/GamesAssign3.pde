@@ -15,7 +15,8 @@ void setup(){
   orientation(LANDSCAPE);
   background();
   smooth();
-  mysprite= new sprite(height-(height/7));
+  
+  mysprite= new sprite((width/10), height-(height/7), width/10);
   mytree = new tree(0);
   mybird = new bird(0, (height/5), (width/130), (width/20));
   mybird1 = new bird((width/2), (height/15), (width/160), (width/20));
@@ -32,12 +33,13 @@ void setup(){
 
 }
 
-float startPosX = (width/10);
 int speed = 20;
 
 
 
 void draw(){
+  
+  
   background();
   mytree.display();
   mysprite.display();
@@ -58,11 +60,31 @@ void draw(){
   mybird34.display();
   mybird34.move();
   
-  if(startPosX > width){
+  
+  if(mysprite.startPosX > width){
   noLoop();
+  }
+  
+  if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < mysprite.wBody + mybird3.wbird/2 ){
+    lose();
+  }
+  if(dist( mysprite.startPosX, mysprite.startPosY, mybird32.xcent, mybird32.ycent) < mysprite.wBody+ mybird32.wbird/2 ){
+    lose();
+  }
+  if(dist(mysprite.startPosX, mysprite.startPosY, mybird33.xcent, mybird33.ycent) < mysprite.wBody + mybird33.wbird /2){
+    lose();
+  }
+  if(dist( mysprite.startPosX, mysprite.startPosY, mybird34.xcent, mybird34.ycent) < mysprite.wBody + mybird34.wbird/2 ){
+    lose();
+  }
+  
+  if(score < -50){
+  noLoop();
+  }
+  
 }
 
-}
+
 
 
 
@@ -71,11 +93,11 @@ void keyPressed(){ // This function is called everytime a key is pressed.
   {
     if (keyCode == LEFT)
     {
-      startPosX-=speed;
+      mysprite.startPosX-=speed;
     }
     else if (keyCode == RIGHT)
     {
-      startPosX+=speed;
+      mysprite.startPosX+=speed;
     }
   } 
 } // End of keyPressed()

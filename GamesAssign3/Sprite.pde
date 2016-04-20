@@ -1,9 +1,13 @@
 class sprite{
+  float startPosX;
   float startPosY;
+  float wBody;
   
   //consrtuctor
-  sprite(float _startPosY){
+  sprite(float _startPosX, float _startPosY, float _wBody){
+    startPosX = _startPosX;
     startPosY = _startPosY;
+    wBody = _wBody ;
   }
   
   
@@ -22,7 +26,7 @@ class sprite{
     //left arm and right arm
     line(startPosX+(width/43.33), startPosY-(height/7.5), startPosX, startPosY-(height/5));
     line(startPosX+(width/43.33), startPosY-(height/7.5), startPosX+(width/21.6666), startPosY-(height/5));*/
-    float wBody = width/10;
+    
     float wHead = width/15;
     float wEar = width/30;
     float wFeet = width/15;
