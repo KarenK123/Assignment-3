@@ -58,7 +58,7 @@ void display(){
 }
 
 void move(){
-  xPos = xPos - speeded;
+  xPos = xPos - speed;
   if (xPos < 0){
     xPos = width;
     

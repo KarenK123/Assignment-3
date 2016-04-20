@@ -1,22 +1,13 @@
-class car{
-  float xPos;
-  float yPos;
-  float cWidth;
-  //float wheel1X;
-  //float wheel2X;
-  //float wheelY;
-
-car(float _xPos, float _yPos, float _cWidth){
-  xPos = _xPos;
-  yPos = _yPos;
-  cWidth = _cWidth;
-  //wheel1X = _wheel1X;
-  //wheel2X = _wheel2X;
-  //wheelY = _wheelY;
+class car2 extends car{
+    float colour;
+    
+car2(float xPos, float yPos, float cWidth, float _colour){
+  super(xPos, yPos, cWidth);
+  colour = _colour;
 }
 
 
-void display(){
+  void display(){
   rectMode(CORNER);
   
   //car width and height
@@ -26,8 +17,8 @@ void display(){
   float wheel2X = xPos+(cWidth/1.2);
   float wheelY = yPos+(cHeight);
   
-  fill(255, 0, 0);
-  stroke(255,  0, 0);
+  fill(#49A55B);
+  stroke(#49A55B);
   //exhaust
   rect(xPos+cWidth, yPos+(cHeight/1.5), (cWidth/11.66), (cWidth/17.5));
   //body 
@@ -43,8 +34,8 @@ void display(){
   fill(0);
   ellipse(wheel1X, wheelY, (cWidth/8.75), (cWidth/8.75));
   ellipse(wheel2X, wheelY, (cWidth/8.75), (cWidth/8.75));;
-  fill(255, 0, 0);
-  stroke(255, 0, 0);
+  fill(#49A55B);
+  stroke(#49A55B);
   //hood
   bezier(xPos+(cWidth/8), yPos, 
   xPos+(cWidth/8), yPos-(cHeight*1.5), 
@@ -56,14 +47,4 @@ void display(){
   
   
 }
-
-void move(){
-  xPos = xPos - speeded;
-  if (xPos < 0){
-    xPos = width;
-    
-  }
-}
-
-
 }
