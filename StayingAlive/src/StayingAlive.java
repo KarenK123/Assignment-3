@@ -115,7 +115,6 @@ public class StayingAlive extends PApplet {
                  fill(250, 168, 3);
                  text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
               }
-          noLoop();
           }
         
         if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < (mysprite.wHead + mybird3.wbird/2) ){
@@ -165,7 +164,6 @@ public class StayingAlive extends PApplet {
                  fill(250, 168, 3);
                  text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
               }
-          noLoop();
           }
         
         if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < mysprite.wHead + mybird3.wbird/2 ){
@@ -220,7 +218,7 @@ public class StayingAlive extends PApplet {
                  fill(250, 168, 3);
                  text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
               }
-          noLoop();
+              noLoop();
           }
         
         if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < mysprite.wHead + mybird3.wbird/2 ){
@@ -267,7 +265,6 @@ public class StayingAlive extends PApplet {
                fill(250, 168, 3);
                text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
             }
-        noLoop();
         }
         
         if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar.xPos, mycar.yPos) < mysprite2.wHead + mycar.cWidth/2 ){
@@ -308,7 +305,6 @@ public class StayingAlive extends PApplet {
                fill(250, 168, 3);
                text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
             }
-        noLoop();
         }
         
         if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar.xPos, mycar.yPos) < mysprite2.wHead + mycar.cWidth/2 ){
@@ -355,7 +351,7 @@ public class StayingAlive extends PApplet {
                fill(250, 168, 3);
                text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
             }
-        noLoop();
+            noLoop();
         }
         
         if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar.xPos, mycar.yPos) < mysprite2.wHead + mycar.cWidth/2 ){

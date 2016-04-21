@@ -40,7 +40,7 @@ public class sprite {
 	    float wEyes = parent.width/50;
 	    float hEyes = parent.width/40;
 	    parent.noStroke();
-	    parent.fill(190, 198, 195);
+	    parent.fill(155, 151, 148);
 	    //feet
 	    parent.ellipse(startPosX-(wFeet/2), startPosY+hFeet, wFeet, hFeet);
 	    parent.ellipse(startPosX+(wFeet/2), startPosY+hFeet, wFeet, hFeet);
