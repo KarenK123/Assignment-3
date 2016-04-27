@@ -72,4 +72,7 @@ public class sprite {
 	    parent.fill(225);
 	    parent.ellipse(startPosX, startPosY, (float)(wBody/1.4), (float)(wBody/1.3));
 	  }
+	  
+	
+	
 }

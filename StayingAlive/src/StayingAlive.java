@@ -1,4 +1,7 @@
 import processing.core.*;
+
+import java.io.PrintWriter;
+
 import ddf.minim.*;
 
 @SuppressWarnings("serial")
@@ -13,11 +16,13 @@ public class StayingAlive extends PApplet {
 	AudioPlayer sou;
 	
 	PFont font;
+	PrintWriter output;
 	int speed = 20;
 	int mode = 0;
+	int innerMode = 2;
 	int speeded = 2;
 	int speededS = 20;
-	
+	int score = 50;
 	
 	sprite mysprite;
 	//cloud mycloud;
@@ -35,9 +40,13 @@ public class StayingAlive extends PApplet {
 	car mycar;
 	car2 mycar2;
 	car3 mycar3;   
+
+	
 	
 	
     public void setup() {
+
+    	
     	// Load a soundfile from the /data folder of the sketch and play it back
     	  minim = new Minim(this);
     	  sou = minim.loadFile("sample.mp3");
@@ -47,15 +56,18 @@ public class StayingAlive extends PApplet {
     	  font = loadFont("snap40.vlw");
     	  textFont(font);
     	  
+    	  output = createWriter("score.txt"); 
+    	  
     	  size(650, 300);
     	  //fullScreen();
     	  orientation(LANDSCAPE);
     	  background();
     	  smooth(); 
     	  
+    	  float groundlevel = height-(height/7);
     	  float stageZone = (height*.75f);
     	  
-    	  mysprite= new sprite(this, (width/10f), height-(height/7), width/15);
+    	  mysprite= new sprite(this, (width/10f), groundlevel, width/15);
     	  //mycloud = new cloud(0, (width/12.5), 0.1);
     	  mytree = new tree(this, 0);
     	  myflowers = new flowers(this, 0, stageZone);
@@ -115,6 +127,8 @@ public class StayingAlive extends PApplet {
                  fill(250, 168, 3);
                  text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
               }
+              score += 1;
+              noLoop();
           }
         
         if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < (mysprite.wHead + mybird3.wbird/2) ){
@@ -122,129 +136,131 @@ public class StayingAlive extends PApplet {
         }
         
         
-        if(score < 0){
+        if(score < 1){
           String lines[] = loadStrings("Lose.txt");
               for (int i = 0; i < lines.length; i++) {
                 fill(250, 168, 3);
                 text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
               }
-          noLoop();
+              lose();
+              noLoop();
           }
         }
       break;
-      
-      
-      
-      
-      
-      case 2:{
-      background();
-          mytree.display();
-          myflowers.display();
-          mysprite.display();
-          mybird.display();
-          mybird.move();
-          mybird1.display();
-          mybird1.move();
-          mybird2.display();
-          mybird2.move();
-          mybird21.display();
-          mybird21.move();
-          mybird3.display();
-          mybird3.move();
-          mybird32.display();
-          mybird32.move();
+   
+        case 2: {
+            
+            background();
+            mytree.display();
+              myflowers.display();
+              mysprite.display();
+              mybird.display();
+              mybird.move();
+              mybird1.display();
+              mybird1.move();
+              mybird2.display();
+              mybird2.move();
+              mybird21.display();
+              mybird21.move();
+              mybird3.display();
+              mybird3.move();
+              mybird32.display();
+              mybird32.move();
+            
+            fill(247, 115, 232);
+            text("Lives:" +score/10, width-150, 20);
           
-          fill(247, 115, 232);
-          text("Lives:" +score/10, width-150, 20);
-        
-          if(mysprite.startPosX > width){
-          String lines[] = loadStrings("Win.txt");
-              for (int i = 0; i < lines.length; i++) {
-                 fill(250, 168, 3);
-                 text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
-              }
-          }
-        
-        if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < mysprite.wHead + mybird3.wbird/2 ){
-          lose();
-        }
-        
-        if(dist( mysprite.startPosX, mysprite.startPosY, mybird32.xcent, mybird32.ycent) < mysprite.wHead + mybird32.wbird/2 ){
-          lose();
-        }
-        
-        if(score < 0){
-          String lines[] = loadStrings("Lose.txt");
-              for (int i = 0; i < lines.length; i++) {
-                fill(250, 168, 3);
-                text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
-              }
-          noLoop();
-          }
-        }
-        break;
-        
-        
-        
-        
-        
-        case 3:{
-      background();
-          mytree.display();
-          myflowers.display();
-          mysprite.display();
-          mybird.display();
-          mybird.move();
-          mybird1.display();
-          mybird1.move();
-          mybird2.display();
-          mybird2.move();
-          mybird21.display();
-          mybird21.move();
-          mybird3.display();
-          mybird3.move();
-          mybird32.display();
-          mybird32.move();
-          mybird33.display();
-          mybird33.move();
+            if(mysprite.startPosX > width){
+            String lines[] = loadStrings("Win.txt");
+                for (int i = 0; i < lines.length; i++) {
+                   fill(250, 168, 3);
+                   text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
+                }
+                score += 1;
+                noLoop();
+            }
           
-          fill(247, 115, 232);
-          text("Lives:" +score/10, width-150, 20);
-        
-          if(mysprite.startPosX > width){
-          String lines[] = loadStrings("Win.txt");
-              for (int i = 0; i < lines.length; i++) {
-                 fill(250, 168, 3);
-                 text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
-              }
-              noLoop();
+          if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < mysprite.wHead + mybird3.wbird/2 ){
+              lose();
+            }
+            
+            if(dist( mysprite.startPosX, mysprite.startPosY, mybird32.xcent, mybird32.ycent) < mysprite.wHead + mybird32.wbird/2 ){
+              lose();
+            }
+          
+          
+          if(score < 1){
+            String lines[] = loadStrings("Lose.txt");
+                for (int i = 0; i < lines.length; i++) {
+                  fill(250, 168, 3);
+                  text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
+                }
+                lose();
+                noLoop();
+            }
           }
-        
-        if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < mysprite.wHead + mybird3.wbird/2 ){
-          lose();
-        }
-        
-        if(dist( mysprite.startPosX, mysprite.startPosY, mybird32.xcent, mybird32.ycent) < mysprite.wHead + mybird32.wbird/2 ){
-          lose();
-        }
-        
-        if(dist( mysprite.startPosX, mysprite.startPosY, mybird33.xcent, mybird33.ycent) < mysprite.wHead + mybird33.wbird/2 ){
-          lose();
-        }
-        
-        if(score < 0){
-          String lines[] = loadStrings("Lose.txt");
-              for (int i = 0; i < lines.length; i++) {
-                fill(250, 168, 3);
-                text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
-              }
-          noLoop();
-          }
-        }
         break;
+   
         
-        
+        case 3: {
+            
+            background();
+            mytree.display();
+              myflowers.display();
+              mysprite.display();
+              mybird.display();
+              mybird.move();
+              mybird1.display();
+              mybird1.move();
+              mybird2.display();
+              mybird2.move();
+              mybird21.display();
+              mybird21.move();
+              mybird3.display();
+              mybird3.move();
+              mybird32.display();
+              mybird32.move();
+              mybird33.display();
+              mybird33.move();
+            
+            fill(247, 115, 232);
+            text("Lives:" +score/10, width-150, 20);
+          
+            if(mysprite.startPosX > width){
+            String lines[] = loadStrings("Win.txt");
+                for (int i = 0; i < lines.length; i++) {
+                   fill(250, 168, 3);
+                   text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
+                }
+                score += 1;
+                noLoop();
+               
+            }
+          
+          if(dist( mysprite.startPosX, mysprite.startPosY, mybird3.xcent, mybird3.ycent) < mysprite.wHead + mybird3.wbird/2 ){
+              lose();
+            }
+            
+            if(dist( mysprite.startPosX, mysprite.startPosY, mybird32.xcent, mybird32.ycent) < mysprite.wHead + mybird32.wbird/2 ){
+              lose();
+            }
+            
+            if(dist( mysprite.startPosX, mysprite.startPosY, mybird33.xcent, mybird33.ycent) < mysprite.wHead + mybird33.wbird/2 ){
+              lose();
+            }
+          
+          
+          if(score < 1){
+            String lines[] = loadStrings("Lose.txt");
+                for (int i = 0; i < lines.length; i++) {
+                  fill(250, 168, 3);
+                  text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
+                }
+                lose();
+                noLoop();
+            }
+          }
+        break;
         
         case 4:
       {
@@ -265,92 +281,7 @@ public class StayingAlive extends PApplet {
                fill(250, 168, 3);
                text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
             }
-        }
-        
-        if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar.xPos, mycar.yPos) < mysprite2.wHead + mycar.cWidth/2 ){
-          lose();
-        }
-        
-        
-        if(score < 0){
-        	String lines[] = loadStrings("Lose.txt");
-            for (int i = 0; i < lines.length; i++) {
-              fill(250, 168, 3);
-              text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
-            }
-        noLoop();
-        }
-      }
-      break;
-      
-      
-      
-      
-      
-      
-      case 5:
-      {
-        background2();
-        mysprite2.display();
-        mycar.display();
-        mycar.move();
-        mycar2.display();
-        mycar2.move();
-        fill(255);
-        text("Lives:" +score/10, width-150, 20);
-        
-        if(mysprite2.startPosY < 0){
-        	String lines[] = loadStrings("Win.txt");
-            for (int i = 0; i < lines.length; i++) {
-               fill(250, 168, 3);
-               text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
-            }
-        }
-        
-        if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar.xPos, mycar.yPos) < mysprite2.wHead + mycar.cWidth/2 ){
-          lose();
-        }
-        
-        if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar2.xPos, mycar2.yPos) < mysprite2.wHead + mycar2.cWidth/2 ){
-          lose();
-        }
-        
-        
-        if(score < 0){
-        	String lines[] = loadStrings("Lose.txt");
-            for (int i = 0; i < lines.length; i++) {
-              fill(250, 168, 3);
-              text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
-            }
-        noLoop();
-        }
-      }
-      break;
-      
-      
-      
-      
-      
-      
-      case 6:
-      {
-        background2();
-        mysprite2.display();
-        mycar.display();
-        mycar.move();
-        mycar2.display();
-        mycar2.move();
-        mycar3.display();
-        mycar3.move();
-        fill(255);
-        text("Lives:" +score/10, width-150, 20);
-        
-        if(mysprite2.startPosY < 0){
-        	String lines[] = loadStrings("Win.txt");
-            for (int i = 0; i < lines.length; i++) {
-               fill(250, 168, 3);
-               text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
-            }
+            score +=1;
             noLoop();
         }
         
@@ -358,24 +289,109 @@ public class StayingAlive extends PApplet {
           lose();
         }
         
-        if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar2.xPos, mycar2.yPos) < mysprite2.wHead + mycar2.cWidth/2 ){
-          lose();
-        }
         
-        if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar3.xPos, mycar3.yPos) < mysprite2.wHead + mycar3.cWidth/2 ){
-          lose();
-        }
-        
-        if(score < 0){
+        if(score < 1){
         	String lines[] = loadStrings("Lose.txt");
             for (int i = 0; i < lines.length; i++) {
               fill(250, 168, 3);
               text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
             }
-        noLoop();
+            lose();
+            noLoop();
         }
       }
       break;
+      
+        case 5:
+        {
+        	background2();
+            mysprite2.display();
+            mycar.display();
+            mycar.move();
+            mycar2.display();
+            mycar2.move();
+            fill(255);
+            text("Lives:" +score/10, width-150, 20);
+            
+            if(mysprite2.startPosY < 0){
+            	String lines[] = loadStrings("Win.txt");
+                for (int i = 0; i < lines.length; i++) {
+                   fill(250, 168, 3);
+                   text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
+                }
+                score += 1;
+                noLoop();
+            }
+            
+            if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar.xPos, mycar.yPos) < mysprite2.wHead + mycar.cWidth/2 ){
+              lose();
+            }
+            
+            if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar2.xPos, mycar2.yPos) < mysprite2.wHead + mycar2.cWidth/2 ){
+              lose();
+            }
+            
+            
+            if(score < 1){
+            	String lines[] = loadStrings("Lose.txt");
+                for (int i = 0; i < lines.length; i++) {
+                  fill(250, 168, 3);
+                  text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
+                }
+                lose();
+                noLoop();
+            }
+       	
+        	
+        }
+        break;
+        
+        case 6:
+        {
+        	background2();
+            mysprite2.display();
+            mycar.display();
+            mycar.move();
+            mycar2.display();
+            mycar2.move();
+            mycar3.display();
+            mycar3.move();
+            fill(255);
+            text("Lives:" +score/10, width-150, 20);
+            
+            if(mysprite2.startPosY < 0){
+            	String lines[] = loadStrings("Win.txt");
+                for (int i = 0; i < lines.length; i++) {
+                   fill(250, 168, 3);
+                   text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
+                }
+                score += 1;
+                noLoop();
+            }
+            
+            if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar.xPos, mycar.yPos) < mysprite2.wHead + mycar.cWidth/2 ){
+              lose();
+            }
+            
+            if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar2.xPos, mycar2.yPos) < mysprite2.wHead + mycar2.cWidth/2 ){
+              lose();
+            }
+            
+            if(dist( mysprite2.startPosX, mysprite2.startPosY, mycar3.xPos, mycar3.yPos) < mysprite2.wHead + mycar3.cWidth/2 ){
+              lose();
+            }
+            
+            if(score < 1){
+            	String lines[] = loadStrings("Lose.txt");
+                for (int i = 0; i < lines.length; i++) {
+                  fill(250, 168, 3);
+                  text(lines[i], (width/4), (height/3), (width/2), (height/2));  // Text wraps within text box
+                }
+                lose();
+                noLoop();
+            }
+        }
+        break;
       
       default:
       {
@@ -387,7 +403,9 @@ public class StayingAlive extends PApplet {
     }//end switch
         
     }
-    
+          
+
+ 
     
     public void background(){
     	  
@@ -446,14 +464,13 @@ public class StayingAlive extends PApplet {
     	}
 
 	
-	int score = 50;
 
 	public void lose(){
 	  println("noooo");
 	    score--;
 	    println(score);
 	    text("Lives:" +score, width-150, 20);
-	    //output.println("Score:" +score);
+	    output.println("Score:" +score/10);
 	}
 
 	public void win(){
@@ -461,10 +478,22 @@ public class StayingAlive extends PApplet {
 	    score++;
 	    println(score);
 	    text("Lives:" +score, width-150, 20);
-	    //output.println("Score:" +score);
+	    output.println("Score:" +score/10);
 	}
-
-	public void keyPressed(){ // This function is called everytime a key is pressed.
+	
+	
+	
+	
+	
+	
+	
+	public void keyPressed(){ // This function is called every time a key is pressed.
+		 loop();
+		if(key == 's'){
+			  output.flush(); // Writes the remaining data to the file
+			  output.close(); // Finishes the file
+			  exit(); // Stops the program
+			  }
     	  if(key == CODED)
     	  {
     	    if (keyCode == LEFT)
@@ -477,7 +506,7 @@ public class StayingAlive extends PApplet {
     	    }
     	    if (keyCode == UP)
     	    {
-    	      mysprite2.startPosY-=speededS;
+    	    	mysprite2.startPosY-=speededS;
     	    }
     	    else if (keyCode == DOWN)
     	    {
@@ -485,9 +514,31 @@ public class StayingAlive extends PApplet {
     	    }
     	  } 
     	  
-    	  if (key >= '0' && key <='9')
+    	  if (key >= '0' && key <='6')
     	  {
     	    mode = key - '0';
+    	  }
+    	  if (key == '0'){
+    		  mysprite.startPosX = 0;
+    		  score = 50;
+    	  }
+    	  if (key == '1'){
+    		  mysprite.startPosX = 0;
+    	  }
+    	  if (key == '2'){
+    		  mysprite.startPosX = 0;
+    	  }
+    	  if (key == '3'){
+    		  mysprite.startPosX = 0;
+    	  }
+    	  if (key == '4'){
+    		  mysprite2.startPosY = height;
+    	  }
+    	  if (key == '5'){
+    		  mysprite2.startPosY = height;
+    	  }
+    	  if (key == '6'){
+    		  mysprite2.startPosY = height;
     	  }
     	} // End of keyPressed()
     

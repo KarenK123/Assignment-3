@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/StayingAlive.iml" filepath="$PROJECT_DIR$/StayingAlive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gluegen-rt/gluegen-rt.iml" filepath="$PROJECT_DIR$/gluegen-rt/gluegen-rt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gluegen-rt-natives-macosx-universal/gluegen-rt-natives-macosx-universal.iml" filepath="$PROJECT_DIR$/gluegen-rt-natives-macosx-universal/gluegen-rt-natives-macosx-universal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jogl-all/jogl-all.iml" filepath="$PROJECT_DIR$/jogl-all/jogl-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jogl-all-natives-macosx-universal/jogl-all-natives-macosx-universal.iml" filepath="$PROJECT_DIR$/jogl-all-natives-macosx-universal/jogl-all-natives-macosx-universal.iml" />
+    </modules>
+  </component>
+</project>
